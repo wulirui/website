@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+/*案例展示*/
+#showC{ background:#5285b4 url(images/showC_bg.jpg) no-repeat top center; width:100%; height:721px;}
+#showC h3{ background:url(images/showC_tit.png) no-repeat bottom center; width:363px; height:183px; margin:0 auto;}
+#showC p,#about p{ line-height:30px; margin-top:30px;}
+#showC .cq{ width:1000px; margin:30px auto 0; overflow:hidden;}
+#showC .cq div{ position:relative; width:180px; height:180px; margin:10px; background:#ccc; overflow:hidden; float:left;}
+#showC .cq div span{ width:100%; height:100%; background:#09C; position:absolute; left:-300px; top:0;}
+
+</style>
+<script type="text/javascript" src="javascripts/move.js"></script>
+<script type="text/javascript" src="javascripts/common.js"></script>
+<script type="text/javascript" src="javascripts/mouse.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+	var oBox = document.getElementById('cq');
+	var aDiv = oBox.getElementsByTagName('div');
+	
+	
+	for(var i=0;i<aDiv.length;i++){
+		enter(aDiv[i]);
+		leave(aDiv[i]);
+	}
+};
+</script>
+</head>
+
+<body>
+<div id="showC">
+	<h3></h3>
+    <p class="middle white">参加工作以来，我积累了大量的工作经验，做过很多出色的案例。参加工作以来，我积累了大量的<br />
+工作经验，做过很多出色的案例。</p>
+	<div class="cq" id="cq">
+        <div>
+            <span> </span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
