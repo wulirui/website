@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>智能社-http://www.zhinengshe.com</title>
+<title>专业网上购物平台品质保障! - 京东商城</title>
 <meta name="viewport" content="width=device-width, user-scalable=no, initail-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -10,8 +10,24 @@
 
 <style>
 *{ margin:0; padding:0; list-style:none;}
-#div1{ width:100px; height:100px; background:red;}
+#wrap{ min-width:320px; max-width:640px; margin:0 auto; overflow:hidden; height:100%;}
+/*header*/
+#wrap header,#wrap section,#wrap footer{ width:100%;}
+#wrap header{ min-height:44px; background:url(http://st.360buyimg.com/m/images/index/header-bg.png?v=2) repeat-x #efefef; border-bottom:1px solid #bfbfbf; position:relative;}
+header .logo,header .category{ position:absolute; top:0;}
+header .logo{ left:0;}
+header .category{ right:0;}
+header .logo,header .category{ height:44px; width:40px;}
+header .logo span,header .category span,header .form .search span{ display:block; background:url(http://st.360buyimg.com/m/images/index/jd-sprites.png?v=12) no-repeat 0 3px;}
+header .logo span{ height:25px; width:20px; margin:12px 0 0 10px; background-size:200px 200px;}
+header .category span{ height:30px; width:20px; margin:8px 0 0 10px; background-position:-2px -30px; background-size:200px 200px;}
 
+header .form{ height:44px; min-width:240px; margin:0 40px 0 40px;}
+header .form .form-box{ background:#fff; height:30px; position:relative; top:7px;}
+header .form .flex{ height:30px; min-width:200px; border:1px solid #bfbfbf; border-radius:4px 0 0 4px; margin-right:29px; box-sizing:border-box;}
+header .form .flex input{ border:none; outline:none; height:1.5em; line-height:1.2em; margin-top:5px; margin-left:12px;}
+header .form .search{ width:30px; height:30px; box-sizing:border-box; position:absolute; top:0; right:0; border:1px solid #bfbfbf; border-radius:0 4px 4px 0;}
+header .form .search span{ width:15px; height:14px; background-size:200px 200px; background-position:-83px 0; margin:7px 0 0 7px;}
 </style>
 <script>
 
@@ -19,16 +35,23 @@
 </head>
 
 <body>
-<ul>
-	<li>11111</li>
-    <li>2222</li>
-    <li>33333</li>
-    <li>44444</li>
-    <li>5555</li>
-    <li>6666</li>
-</ul>
-<div id="div1">
-	110
+<div id="wrap">
+    <header>
+    	<div class="logo"><span></span></div>
+        <form action="?" class="form">
+        	<div class="form-box">
+            	<div class="flex">
+                    <input type="text" value="手机" />
+                </div>
+                <a href="javascript:;" class="search">
+                    <span></span>
+                </a>
+            </div>
+        </form>
+        <div class="category"><span></span></div>
+    </header>
+    <section></section>
+    <footer></footer>
 </div>
 </body>
 </html>
