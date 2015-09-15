@@ -10,15 +10,16 @@
 
 <style>
 *{ margin:0; padding:0; list-style:none;}
+body{ background:#f5f5f5; font-family:"微软雅黑";}
 #wrap{ min-width:320px; max-width:640px; margin:0 auto; overflow:hidden; height:100%;}
 /*header*/
 #wrap header,#wrap section,#wrap footer{ width:100%;}
-#wrap header{ min-height:44px; background:url(http://st.360buyimg.com/m/images/index/header-bg.png?v=2) repeat-x #efefef; border-bottom:1px solid #bfbfbf; position:relative;}
+#wrap header{ min-height:44px; background:url(mobileImg/header-bg.png) repeat-x #efefef; border-bottom:1px solid #bfbfbf; position:relative; margin-bottom:10px;}
 header .logo,header .category{ position:absolute; top:0;}
 header .logo{ left:0;}
 header .category{ right:0;}
 header .logo,header .category{ height:44px; width:40px;}
-header .logo span,header .category span,header .form .search span{ display:block; background:url(http://st.360buyimg.com/m/images/index/jd-sprites.png?v=12) no-repeat 0 3px;}
+header .logo span,header .category span,header .form .search span{ display:block; background:url(mobileImg/jd-sprites.png) no-repeat 0 3px;}
 header .logo span{ height:25px; width:20px; margin:12px 0 0 10px; background-size:200px 200px;}
 header .category span{ height:30px; width:20px; margin:8px 0 0 10px; background-position:-2px -30px; background-size:200px 200px;}
 
@@ -28,6 +29,44 @@ header .form .flex{ height:30px; min-width:200px; border:1px solid #bfbfbf; bord
 header .form .flex input{ border:none; outline:none; height:1.5em; line-height:1.2em; margin-top:5px; margin-left:12px;}
 header .form .search{ width:30px; height:30px; box-sizing:border-box; position:absolute; top:0; right:0; border:1px solid #bfbfbf; border-radius:0 4px 4px 0;}
 header .form .search span{ width:15px; height:14px; background-size:200px 200px; background-position:-83px 0; margin:7px 0 0 7px;}
+
+/*floor轮播*/
+.s-floor{ padding:4px; box-sizing:border-box;}
+.floor{ width:100%; background:#fff; margin-bottom:10px; box-shadow:0 1px 1px #dcdcdc;}
+.floor .slider{ width:100%;}
+.floor .slider img{ min-width:320px; max-width:640px; width:100%;}
+.floor .app-nav{ display:block; margin-top:10px; overflow:hidden;}
+.floor .app-nav a{ display:block; width:25%; float:left; height:50px; text-align:center; color:#777; font-size:12px; text-decoration:none; position:relative;}
+.floor .app-nav a::after{ display:block; content:""; width:1px; height:28px; background:#dadada; position:absolute; right:-1px; top:9px;}
+.floor .app-nav a img{ display:block; width:25px; height:22px; margin:4px auto;}
+
+/*seckill秒杀*/
+.seckill-floor{ overflow:hidden;}
+.floor .title{ overflow:hidden; border-bottom:1px solid #cbcbcb;}
+.floor .title h2{ float:left; font-size:15px; font-weight:normal; margin:8px 0 4px 7px; color:#7f7f7f;}
+.floor .title h2::before{ display:block; content:""; width:3px; height:12px; float:left; background:#d8505c; margin:4px 7px 0 0;}
+.seckill-floor ul{ display:-webkit-box;}
+.seckill-floor ul li{ position:relative; -webkit-box-flex:1; padding:14px 6.875% 10px; box-sizing:border-box; font-size:12px;}
+.seckill-floor ul li:after{ display:block; content:""; width:1px; height:100%; position:absolute; left:0; top:0; margin-left:-1px; background:#cbcbcb;}
+.seckill-floor ul li img{ width:100%;}
+.seckill-floor ul li span{ display:block; text-align:center; color:#d8505c; margin:5px 0;}
+.seckill-floor ul li span.bgred{ background:#d8505c; color:#fff;}
+
+
+/* gold-floor*/
+.gold-floor{ overflow:hidden;}
+.gold-floor .imgList{}
+.gold-floor .imgList a{ width:50%;}
+.gold-floor .imgList a img{ float:left;}
+.gold-floor .imgList .half{ float:left; border-right:1px solid #fff; margin-left:-1px;}
+.gold-floor .imgList .up{ border-bottom:1px solid #dadada; margin-top:-1px;}
+.gold-floor .imgList .up,.gold-floor .imgList .down{ float:right;}
+
+
+
+.lie-floor{ overflow:hidden;}
+.lie-floor a{ display:block; padding:5px; box-sizing:border-box;}
+.lie-floor a img{}
 </style>
 <script>
 
@@ -50,8 +89,85 @@ header .form .search span{ width:15px; height:14px; background-size:200px 200px;
         </form>
         <div class="category"><span></span></div>
     </header>
-    <section></section>
-    <footer></footer>
+    <div class="floor s-floor">
+        <div class="slider">
+            <img src="mobileImg/banner.jpg">
+        </div>
+        <nav class="app-nav">
+            <a href="javascript:;">
+                <img src="mobileImg/yellowman.png">
+                <span>分类查询</span>
+            </a>
+            <a href="javascript:;">
+                <img src="mobileImg/yellowman.png">
+                <span>分类查询</span>
+            </a>
+            <a href="javascript:;">
+                <img src="mobileImg/yellowman.png">
+                <span>分类查询</span>
+            </a>
+            <a href="javascript:;">
+                <img src="mobileImg/yellowman.png">
+                <span>分类查询</span>
+            </a>
+            <a href="javascript:;">
+                <img src="mobileImg/yellowman.png">
+                <span>分类查询</span>
+            </a>
+            <a href="javascript:;">
+                <img src="mobileImg/yellowman.png">
+                <span>分类查询</span>
+            </a>
+            <a href="javascript:;">
+                <img src="mobileImg/yellowman.png">
+                <span>分类查询</span>
+            </a>
+            <a href="javascript:;">
+                <img src="mobileImg/yellowman.png">
+                <span>分类查询</span>
+            </a>
+        </nav>
+    </div>
+    <div class="floor seckill-floor">
+    	<div class="title"><h2>掌上秒杀</h2></div>
+        <ul>
+        	<li>
+            	<a href="javascript:;"><img src="mobileImg/s1.jpg" alt=""></a>
+                <span>¥49.90</span>
+                <span class="bgred">8.4折</span>
+            </li>
+        	<li>
+            	<a href="javascript:;"><img src="mobileImg/s1.jpg" alt=""></a>
+                <span>¥49.90</span>
+                <span class="bgred">8.4折</span>
+            </li>
+        	<li>
+            	<a href="javascript:;"><img src="mobileImg/s1.jpg" alt=""></a>
+                <span>¥49.90</span>
+                <span class="bgred">8.4折</span>
+            </li>
+        </ul>
+    </div>
+    <div class="floor gold-floor">
+    	<div class="title"><h2>金秋风暴</h2></div>
+        <div class="imgList">
+        	<a href="javascript:;" class="half">
+            	<img src="mobileImg/gold1.jpg" width="100%" />
+            </a>
+        	<a href="javascript:;" class="up">
+            	<img src="mobileImg/gold2.jpg" width="100%" />
+            </a>
+        	<a href="javascript:;" class="down">
+            	<img src="mobileImg/gold3.jpg" width="100%" />
+            </a>
+        </div>
+    </div>
+    <div class="floor lie-floor">
+    	<div class="title"><h2>家电躺购节</h2></div>
+        <a href="javascript:;">
+        	<img src="mobileImg/lie.jpg" width="100%">
+        </a>
+    </div>
 </div>
 </body>
 </html>
