@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initail-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="telephone=no,email=no" name="format-detection"/>
+<title>淘宝</title>
+<style type="text/css">
+*{ padding:0; margin:0; list-style:none;}
+html{ font-size:20px;}
+
+header,footer{ width:100%; display:block;}
+header{ overflow:hidden;}
+header .head{ background:#FE5400; width:100%;}
+header .head .search{ display:block; padding-left:1.85rem; padding-top:0.3rem; padding-bottom:.3rem; padding-right:0.2rem; background-size:1.35rem 1rem; box-sizing:border-box; background-position:0.225rem center; background-repeat:no-repeat; background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD8AAAAwCAYAAACmCaIKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABZNJREFUeNrUWg9k3Fccv+QqhHCEIxzh5rgZmUynjE246YybUjKdK5UZJZXpZDY3q1an0wmp1E1rtMYmlWqlQqqVSaVamVRnlWplEqlGp3Gxk0itVo1fv9/6/rrn9f35vrt3ueuHD3e/e+/97vve9+97ryEIgkiVMAlcA14mLkXqDSi8gTHgEPBO8D9uAvuBTYZ+qeBlzAMHgFlgs+W9m0LTj1uBxUAPnJC4pu9AYMa/wESthW/QqH0r8CYwaVGcK8APgBvCs2bgAxpDh7PATyxjdwDb6D+kgS30PSG0eQT8iz7/DbwLvA5crkTtvw34yEp9P7O0fwpMK7RsL/AnMqunQWWYAxaAHeWo/ZjDi45Iff+0tP8ZuA2YB44D14PqYhTY6SL8uMPgh4V+2aA+gZq0X5Zzi8GWs8yAcVX4fNhzMFoA/gG8TUS7fkKfQ7/QDnwH2CP5AxFR4BD5jn02m28B3mfM6JTQJ+dhhR4Ch2ks12jQRCZoQz8n1KFTmjUMconygHCyHlQgMOYSGU8hzOas/wMmbcIjo8A+WuEiaQMKvdMxrpv+yCBwB02gD+Gj5O1NKHCE5/BdD6EpzBx9JTB9lnctYrvGCh1SHDhCDkUHTEROAn+1jPWNR0f5u+X35POkyZCbT1icDtr7jEWl+6ldwhLPC55T1zaGpnXqOk9Rg6LGEdkER/QK7YcN7WYsRVI5jDGE36WK833ALkGtJ4DfEUO0WdTqGKl6hMbKWUxn2pO6/wA8z2yblGes3aCeaAatUvucIh/4hTxuGHvnNzGT63VY+UHZ4Z2i6kmF7cBr0qqfAb4OPECODWf9U6HKOwpMReoTcXnVHzJmbJHayloTl2w3U4Mc3mXlJ+R6PgY8QnZvAubY7wu1tIwU2XFc8duXQj3QDcxb3nWZNIsD3CpbITlWLW1vmXZxbKVpMUwTFZ52lhEBIvTdhuEqefs5XZKDldTbwC/IlnVe+pwiwcHvJUX7fUIEqAe0mDI8dFrHyaFd1LTZCtwhPSvR1taZOhbcKrxo3x8BD2l+V9X9WHPvprhbj4Kztq5lqjK1aalNvoY7Ni7eftW1sFF53abIq4moq/D36BRGxMorKvzGFscOzYoMcEH6vkzRglsSt1valGjSOXBZiMeuNr9TYTu5CqovH3E+rSi9OTZ/30Xt0bYPajKwzUYX1Q2LwDng/jLGeOIi/FfATunZbSmhmcUAYmDMg+BTxLxwnNZDJumCx1zht2v25C9ImvGGaaYVzrIc3NL4jm7HcdY4wqcM+3RnpcPNqMVx+cBvmud9juOs2IRP0CWDVs0K3HWI92uehL+heb6N0m0uSo2WMDRhCEUnXwod9rBWKbCOmDH83usw1rJOeHRM4wYbXlFsRZfIrnVA7cmUIXCMhEJnOma5M5BzcKrKlUevOUpqpMOPipXekMxAhRGyzbSD8Fg4naBDSU4S1sNOiBQHlNcsycG6YiMz5FHHQuSfMguYSUPfOea+fZecFU0zOg0Ysq0EHVZUC6t08wPfNWJox6ks2xoFZzRJ59wRS6w+Zqn9D1Uho8N64Wvga8DT9Oyqoh3eK/iYEXnuPR+TVOQOc+ZPMHP2godVXqcT4V3COYC82xxqw5Bwz4dzXD4YntKec7jakXQoWj6kgw4uiiRsnk5+uYVWs3Q8PcaQIx1eRcOsrJ+KlhaDqmBo21OGyobXxxLCgceSUH5yyt8chdIbhkwRo1PBEqXCSPU5fhD37ZPUOavZzHyTEcqqsuMCLApZ5gJNwiMhs8ww9gXCiX7vRZhWqFK3wmZGa3hTstNTpJiXT5pUSc552q4+Lpy5fV/D7aaMhzFQprci8uVnxqwP1viO7HgFq33J5Dwbqnjl3BeayIl1CJspHfQ8JeTyS5Rn4AbLdSp9jXdwnwkwAGXl2KVI+BEMAAAAAElFTkSuQmCC);}
+
+header .head .search div{ background:#B52600; text-align:center; border-radius:0.2rem;}
+header .head .search div span{ height:.5rem; line-height:.5rem; font-size:.6rem; color:#F0E0DC; display:inline-block;}
+
+section{ width:16rem;}
+section .box{ width:16rem; margin:0 auto; height:5rem; background:#ccc; overflow:hidden; position:relative;}
+section .box ul{ width:128rem; overflow:hidden; -webkit-transform:translateX(0);}
+section .box ul li{ width:16rem; height:5rem; float:left; text-align:center; line-height:7.5rem; font-size:1.5rem; color:#fff;}
+section .box ul li a{ width:100%; height:100%; display:inline-block;}
+section .box ul li a img{ width:100%; height:100%;}
+section .box .aBtn{ width:100%; height:0.4rem; position:absolute; right:0; bottom:1rem; text-align:right;}
+section .box .aBtn span{ background-size:0.8rem 0.8rem; display:inline-block; width:0.4rem; height:0.4rem; background-repeat:no-repeat; background-image:url(taobaoImg/btn.png); background-position:0 0;}
+section .box .aBtn span.on{ background-position:center -0.4rem;}
+
+
+
+
+
+
+
+
+
+
+footer{ position:fixed; left:0; bottom:0;}
+
+</style>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',function(){
+	var oUl=document.querySelector('.box ul');
+	var aLi=oUl.children;
+	var BtnBox = document.querySelector('.box .aBtn');
+	var aBtn = BtnBox.children;
+	
+	var x=0;
+	oUl.addEventListener('touchstart',function(ev){
+		var disX=ev.targetTouches[0].pageX-x;
+		
+		oUl.style.WebkitTransition='none';
+		
+		function fnMove(ev){
+			x=ev.targetTouches[0].pageX-disX;
+			oUl.style.WebkitTransform='translateX('+x+'px)';	
+		}
+		function fnEnd(){
+			oUl.removeEventListener('touchmove',fnMove,false);
+			oUl.removeEventListener('touchend',fnEnd,false);
+			
+			var n=-Math.round(x/aLi[0].offsetWidth);
+			
+			if(n<0)n=0;
+			if(n>=aLi.length)n=aLi.length-1;
+			
+			for(var i=0;i<aBtn.length;i++){
+				for(var i=0;i<aBtn.length;i++){
+					aBtn[i].className = '';
+				}
+				aBtn[n].className = 'on';
+			}
+			x=-n*aLi[0].offsetWidth;
+			oUl.style.WebkitTransition='.4s all ease';
+			oUl.style.WebkitTransform='translateX('+x+'px)';
+		}
+		
+		oUl.addEventListener('touchmove',fnMove,false);
+		oUl.addEventListener('touchend',fnEnd,false);
+		
+		ev.preventDefault();
+	},false);
+},false);
+
+</script>
+</head>
+
+<body>
+<header>
+	<div class="head">
+    	<div class="search">
+        	<div>
+            	<span>寻找宝贝店铺</span>
+            </div>
+        </div>
+    </div>
+</header>
+<section>
+	<div class="box">
+        <ul>
+            <li><a href="javascript:;"><img src="taobaoImg/b1.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="taobaoImg/b2.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="taobaoImg/b3.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="taobaoImg/b4.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="taobaoImg/b5.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="taobaoImg/b6.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="taobaoImg/b7.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="taobaoImg/b8.jpg" alt=""></a></li>
+        </ul>
+        <div class="aBtn">
+        	<span class="on"></span>
+        	<span></span>
+        	<span></span>
+        	<span></span>
+        	<span></span>
+        	<span></span>
+        	<span></span>
+        	<span></span>
+        </div>
+    </div>
+    
+
+</section>
+<footer></footer>
+</body>
+<script>
+;(function(win,doc){
+	var resize='orientationchange' in window?'orientationchange':'resize';
+	
+	function change(){
+		var html=doc.documentElement;
+		html.style.fontSize=doc.documentElement.clientWidth/16+'px';	
+	}
+	
+	win.addEventListener(resize,change,false);
+	win.addEventListener('load',change,false);
+	doc.addEventListener('DOMContentLoaded',false);
+})(window,document);
+</script>
+
+</html>
