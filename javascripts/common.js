@@ -1,15 +1,14 @@
 // JavaScript Document
-
 window.onload = function(){
-	
 //轮播
-
 	;(function(){
 		var oBox=document.getElementById('banner');
+		var oMb = document.getElementById('ban_con');
 		var oOl=oBox.getElementsByTagName('ol')[0];
 		var aLi=oOl.children;
 		var oUl=oBox.getElementsByTagName('ul')[0];
 		var aBtn=oUl.children;
+		var timer = null;
 		
 		//复制一份
 		oOl.innerHTML+=oOl.innerHTML;
@@ -27,11 +26,21 @@ window.onload = function(){
 			})(i);
 		}
 		
-		setInterval(function(){
+		timer = setInterval(function(){
 			iNow++;
 			tab();
-		},2000);
+		},4000);
 		
+		oMb.onmouseover = function(){
+			clearInterval(timer);
+		};
+
+		oMb.onmouseout = function(){
+			timer = setInterval(function(){
+				iNow++;
+				tab();
+			},4000);
+		};		
 		function tab(){
 			for(var i=0; i<aBtn.length; i++){
 				aBtn[i].className='';
