@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+*{ margin:0; padding:0;}
+html,body{ width:100%; height:100%; overflow:hidden;}
+div{ width:100%; height:100%; background:url(images/da.jpg) no-repeat; background-size:cover; -webkit-mask:url(images/3.png) no-repeat; cursor:crosshair;}
+</style>
+<script>
+window.onload=function(){
+	var oDiv=document.querySelector('div');	
+	
+	document.onmousemove=function(ev){
+		var l=ev.clientX-150;
+		var t=ev.clientY-150;
+		oDiv.style.WebkitMaskPosition=l+'px '+t+'px';
+	};
+};
+</script>
+</head>
+
+<body>
+<div></div>
+</body>
+</html>
