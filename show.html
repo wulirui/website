@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0; list-style:none;}
+body{ background:#000; text-align:center;}
+ul{ width:300px; height:300px; position:absolute; left:50%; top:50%; margin:-150px 0 0 -150px;}
+ul li{ width:300px; height:300px; border:1px solid #fff; background:#399; font-size:30px; color:#fff; text-align:center; line-height:300px; position:absolute; left:0; top:0; opacity:0; transition:1s all cubic-bezier(0.5, 2.23, 0.54, 0.48); -webkit-box-reflect:below 10px -webkit-linear-gradient(rgba(0,0,0,0) 40%,rgba(0,0,0,0.5)); transform:perspective(800px) translateX(0px) rotateY(0deg);}
+
+ul li.l2{ opacity:0; transform:perspective(800px) translateX(-280px) rotateY(60deg); z-index:2;}
+ul li.l1{ opacity:.8; transform:perspective(800px) translateX(-200px) rotateY(60deg); z-index:5;}
+ul li.cur{ opacity:1; z-index:10;}
+ul li.r1{ opacity:.8; transform:perspective(800px) translateX(200px) rotateY(-60deg); z-index:5;}
+ul li.r2{ opacity:0; transform:perspective(800px) translateX(280px) rotateY(-60deg); z-index:2;}
+
+input{ width:100px; height:50px; line-height:30px; font-size:26px;}
+</style>
+<script type="text/javascript">
+window.onload = function(){
+	var aBtn = document.querySelectorAll('input[type=button]');
+	
+	var aLi = document.querySelectorAll('ul li');
+	var aClass=[];
+	
+	var bReady=true;
+	
+	for(var i=0;i<aLi.length;i++){
+		aClass[i]=aLi[i].className;
+	}
+	
+	function tab(){
+		for(var i=0; i<aLi.length; i++){
+			aLi[i].className=aClass[i];
+		}
+		document.querySelector('.cur').addEventListener('transitionend',function(){
+			bReady=true;
+		},false);	
+	}
+	
+	aBtn[0].onclick = function(){
+		if(bReady==false)return;
+		
+		bReady=false;
+		
+		aClass.unshift(aClass.pop());
+		
+		tab();
+	};
+	aBtn[1].onclick = function(){
+		if(bReady==false)return;
+		
+		bReady=false;
+		aClass.push(aClass.shift());
+		
+		tab();
+	};
+	
+	
+};
+</script>
+</head>
+
+<body>
+	<input type="button" value="←"><input type="button" value="→">
+	<ul>
+		<li class="l2">1</li>
+		<li class="l1">2</li>
+		<li class="cur">3</li>
+		<li class="r1">4</li>
+		<li class="r2">5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+	</ul>
+</body>
+</html>
