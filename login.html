@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0; list-style:none;}
+html,body{ overflow:hidden;}
+div{ border:1px solid #000; background:#eee; width:300px; padding:10px; text-align:center; line-height:30px; height:150px; position:absolute; left:50%; top:50%; margin-left:-160px; margin-top:-85px; transform:perspective(800px) rotate(0deg) scale(5); opacity:0; display:none; transition:2s all ease;}
+
+div input{ border:1px solid #000; padding:5px 10px;}
+</style>
+<script type="text/javascript">
+window.onload = function(){
+	var oBtn = document.getElementById('btn1');
+	var oBox = document.getElementById('box');
+	var oClo = document.getElementById('close');
+	oClo.onclick = function(){
+		oBox.style.transform = 'perspective(800px) rotateX(0deg) scale(5)';
+		oBox.style.opacity = '0';
+		oBox.addEventListener('transitionend',function(){
+			oBox.style.display = 'none';
+		},false);
+	};
+	
+	oBtn.onclick = function(){
+		setTimeout(function(){
+			oBox.style.transform = 'perspective(800px) rotateX(360deg) scale(1)';
+			oBox.style.opacity = '1';
+		},0);
+		oBox.style.display = 'block';
+		oBox.addEventListener('transitionend',function(){
+			oBox.style.display = 'block';
+		},false);
+
+	};
+};
+</script>
+</head>
+
+<body>
+<input type="button" value="登陆" id="btn1">
+
+<div id="box">
+	user:<input type="text"><br>
+	pass:<input type="password"><br>
+	<input type="button" value="登陆">
+    <a href="javascript:;" id="close">×</a>
+</div>
+
+</body>
+</html>

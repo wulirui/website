@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com">
+<meta name="copyright" content="智能社 - zhinengshe.com">
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+* { margin:0; padding:0; }
+div { position:relative; width:700px; height:400px; margin:150px auto; }
+span { position:absolute; background:url(images/1-0.jpg) no-repeat; opacity:0; }
+#btn { position:absolute; top:100px; left:100px; width:100px; height:30px; }
+</style>
+<script src="javascripts/move.js"></script>
+<script>
+window.onload=function (){
+	var total=3; // 总图片数
+	// 创建
+	var oDiv=document.getElementById('div1');
+	var oImg = document.getElementById('img1');
+	var C=7;
+	var R=4;
+	var w=oDiv.offsetWidth/C;
+	var h=oDiv.offsetHeight/R;
+	var aSpan=[];
+	
+	for (var r=0; r<R; r++)
+	{
+		for (var c=0; c<C; c++)
+		{
+			var oSpan=document.createElement('span');
+			oSpan.style.width=w+'px';
+			oSpan.style.height=h+'px';
+			var top=r*h;
+			var left=w*c;
+			
+			oSpan.style.top=top+'px';
+			oSpan.style.left=left+'px';
+			
+			var sPosition=-left+'px -'+top+'px';
+			oSpan.style.backgroundPosition=sPosition;
+			
+			oSpan.r=r;
+			oSpan.c=c;
+			
+			aSpan.push(oSpan);
+			oDiv.appendChild(oSpan);
+		}
+	}
+	
+	// 点击
+	var oBtn=document.getElementById('btn');
+	var oImg=document.getElementById('img1');
+	var now=0; // 点击次数
+	var timer = null;
+	var bReady = true;
+	
+	oBtn.onclick=function (){
+		//alert(bReady)
+		if(!bReady)return;
+		bReady=false;
+		
+		var n = 0;
+		now++;
+		
+		for(var i=0;i<aSpan.length;i++){
+			aSpan[i].style.opacity = 0;
+			aSpan[i].style.backgroundImage = 'url(images/1-'+now%3+'.jpg)';
+		}
+		for (var i=0; i<aSpan.length; i++)
+		{
+			(function (index){
+				timer = setTimeout(function (){
+					(function(index2){
+						move(aSpan[index], {opacity:1},{complete:function(){
+							if(index2==aSpan.length-1){
+								oImg.src = 'images/1-'+now%3+'.jpg';
+								bReady=true;
+							}
+							
+						}});
+					})(n);
+					n++;
+					if(n==aSpan.length){
+						clearInterval(timer);
+					}
+					
+				}, 100*(aSpan[index].r+aSpan[index].c));
+			})(i);
+		}
+	};
+};
+</script>
+</head>
+
+<body>
+	<input type="button" value="下一张" id="btn" />
+	<div id="div1">
+		<img src="images/1-0.jpg" id="img1" />
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
