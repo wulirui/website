@@ -127,6 +127,43 @@ window.onload = function(){
 		}
 		
 	})();
-	
+//锚点
 
+(function(){
+	function scroll2(index){
+		var oBd = document.getElementById('bd');
+		var aMain = oBd.children;
+		var timer = null;
+		iNow=index;
+		clearInterval(timer);
+		var n=0;
+		var count=Math.floor(1000/30);
+		var start=document.documentElement.scrollTop||document.body.scrollTop;
+		var iTarget=aMain[index].offsetTop;
+		var dis=iTarget-start;
+		timer=setInterval(function(){
+			bScroll=false;
+			n++;
+			var a=1-n/count;
+			var top=start+dis*(1-Math.pow(a,3));
+			document.documentElement.scrollTop=document.body.scrollTop=top;
+			if(n==count){
+				clearInterval(timer);
+			}	
+		},30);	
+	}
+	var oH = document.getElementById('header');
+	var oTs = document.getElementById('ts');
+	var oUl = document.getElementById('list');
+	var aLi = oUl.children;
+	for(var i = 0; i<aLi.length;i++){
+		(function(index){
+			aLi[i].onclick = function(){
+				oTs.style.display = 'block';
+				oH.style.position='fixed';
+				scroll2(index)
+			};
+		})(i);
+	}
+})();
 }
