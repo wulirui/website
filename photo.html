@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+* { margin:0; padding:0; }
+ul { width:510px; height:510px; border:1px solid red; margin:100px auto; }
+li { float:left; list-style:none; width:150px; height:150px; background:#ccc; margin:10px; font-size:50px; line-height:150px; text-align:center; }
+img { display:block; width:100%; }
+.on { border:5px dashed red; width:140px; height:140px; }
+span { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(255, 255, 255, 0.5); color:red; }
+</style>
+<script src="javascripts/move.js"></script>
+<script>
+window.onload=function (){
+	var aLi=document.getElementsByTagName('li');
+	
+	
+	// 布局转换
+	var aPos=[];
+	for (var i=0; i<aLi.length; i++)
+	{
+		aPos.push({
+			left:aLi[i].offsetLeft,
+			top :aLi[i].offsetTop
+		});	
+	}
+	
+	for (var i=0; i<aLi.length; i++)
+	{
+		aLi[i].style.position='absolute';
+		aLi[i].style.left=aPos[i].left+'px';
+		aLi[i].style.top=aPos[i].top+'px';
+		aLi[i].style.margin='0';
+	}
+	
+	// 加拖拽
+	for (var i=0; i<aLi.length; i++)
+	{
+		aLi[i].index=i;
+		drag(aLi[i]);
+	}
+	var zIndex=1;
+	
+	function drag(obj)
+	{
+		obj.onmousedown=function (ev){
+			var oEvent=ev || event;
+			var disX=oEvent.clientX-obj.offsetLeft;
+			var disY=oEvent.clientY-obj.offsetTop;
+			obj.style.zIndex=zIndex++;
+			var oNear=null;
+			
+			document.onmousemove=function (ev){
+				var oEvent=ev || event;
+				var left=oEvent.clientX-disX;
+				var top=oEvent.clientY-disY;
+				
+				obj.style.left=left+'px';
+				obj.style.top=top+'px';
+				
+				// 找最近
+				oNear=findNear(obj);
+				
+				for (var i=0; i<aLi.length; i++)
+				{
+					aLi[i].className='';
+				}
+				
+				if (oNear)
+				{
+					oNear.className='on';
+				}
+				
+			};
+			
+			document.onmouseup=function (){
+				document.onmousemove=null;
+				document.onmouseup=null;
+				
+				obj.releaseCapture && obj.releaseCapture();
+				
+				// 换位置
+				if (oNear)
+				{
+					var left1=aPos[obj.index].left;
+					var top1=aPos[obj.index].top;
+					
+					var left2=aPos[oNear.index].left
+					var top2=aPos[oNear.index].top
+					
+					move(obj, {left:left2, top:top2});
+					move(oNear, {left:left1, top:top1});
+					
+					var tmp=obj.index;
+					obj.index=oNear.index;
+					oNear.index=tmp;
+					
+					for (var i=0; i<aLi.length; i++)
+					{
+						aLi[i].className='';
+					}	
+				}
+				else
+				{
+					var left=aPos[obj.index].left;
+					var top=aPos[obj.index].top;
+					
+					move(obj, {left:left, top:top});
+				}
+			};
+			
+			obj.setCapture && obj.setCapture();
+			return false;
+		};
+	}
+	
+	
+	function findNear(obj)
+	{
+		// 求距离
+		var iMinDis=99999;
+		var iMinIndex=-1;
+		
+		for (var i=0; i<aLi.length; i++)
+		{
+			if (obj != aLi[i])
+			{
+				if (collTest(obj, aLi[i]))
+				{
+					var dis=getDis(obj, aLi[i]);
+					if (dis < iMinDis)
+					{
+						iMinDis=dis;
+						iMinIndex=i;
+					}
+				}
+			}
+		}
+		
+		return aLi[iMinIndex];
+	}
+	function getDis(obj1, obj2)
+	{
+		var a=obj1.offsetLeft+obj1.offsetWidth/2-(obj2.offsetLeft+obj2.offsetWidth/2);
+		var b=obj1.offsetTop+obj1.offsetHeight/2-(obj2.offsetTop+obj2.offsetHeight/2);
+		
+		var c=Math.sqrt(a*a+b*b);
+		
+		return c;
+	}
+	
+	function collTest(obj1, obj2)
+	{
+		var l1=obj1.offsetLeft;
+		var r1=l1+obj1.offsetWidth;
+		var t1=obj1.offsetTop;
+		var b1=t1+obj1.offsetHeight;
+		
+		var l2=obj2.offsetLeft;
+		var r2=l2+obj2.offsetWidth;
+		var t2=obj2.offsetTop;
+		var b2=t2+obj2.offsetHeight;
+		
+		if (l2>r1 || l1>r2 || t2>b1 || t1>b2)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+	
+};
+</script>
+</head>
+
+<body>
+	<ul>
+		<li><img src="images/cat/1.jpg" /></li>
+		<li><img src="images/cat/2.jpg" /></li>
+		<li><img src="images/cat/3.jpg" /></li>
+		
+		<li><img src="images/cat/4.jpg" /></li>
+		<li><img src="images/cat/5.jpg" /></li>
+		<li><img src="images/cat/6.jpg" /></li>
+		
+		<li><img src="images/cat/7.jpg" /></li>
+		<li><img src="images/cat/8.jpg" /></li>
+		<li><img src="images/cat/9.jpg" /></li>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
