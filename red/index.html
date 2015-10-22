@@ -1,0 +1,285 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initail-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="telephone=no,email=no" name="format-detection"/>
+<title>无标题文档</title>
+<style type="text/css">
+*{ margin:0; padding:0; list-style:none; border:none;}
+body{ font-family:'微软雅黑'; background:#ebebeb;}
+html{ font-size:20px;}
+img{ broder:none;}
+a{ text-decoration:none; color:#fff; width:100%; height:100%; display:block; -webkit-tap-highlight-color:transparent; -webkit-touch-callout:none; -webkit-user-select:none;}
+.dis{ display:-webkit-box;}
+
+.fsize12{ font-size:.6rem;}
+.fsize18{ font-size:.9rem;}
+
+.cfff{ color:#fff;}
+
+.border{ border:1px solid #d3d3d3;}
+.border_r{ border-right:1px solid #d4d4d4;}
+
+.margin_b{ margin-bottom:.35rem;}
+
+header,footer{ width:100%; display:block;}
+#wrap{ height:100%; display:-webkit-box; -webkit-box-orient:vertical;}
+
+
+/*-----------------header----------------*/
+header{ height:5.55rem; overflow:hidden; position:relative;}
+header ul{ width:96rem; -webkit-transform:translateX(-16rem); height:5.55rem; overflow:hidden;}
+header ul li{ width:16rem; height:100%; float:left;}
+header ul li a img{ width:100%; height:100%;}
+
+/*-----------------footer----------------*/
+footer{ position:fixed; left:0; bottom:0; display:}
+footer ul{ height:2.275rem; background:url(images/footer_bg.png) no-repeat; background-size:cover;}
+footer ul li{ -webkit-box-flex:1; text-align:center;}
+footer ul li a{ text-align:center; padding-top:.2rem;}
+footer ul li em{ background:url(images/footer_icon.png) no-repeat; background-size:1.3rem; width:100%; height:1.1rem; display:inline-block;}
+footer ul li em.f_icon0{ background-position:center 0;}
+footer ul li em.f_icon1{ background-position:center -1.7rem;}
+footer ul li em.f_icon2{ background-position:center -3.4rem;}
+footer ul li em.f_icon3{ background-position:center -5.15rem;}
+
+footer ul li span{ font-size:.6rem; display:block; text-align:center; margin-top:-.2rem;}
+/*-----------------section----------------*/
+section{ -webkit-box-flex:1; margin-bottom:2.275rem;}
+/*==关于我们-列表==*/
+section .list{ background:#fff;}
+section .list li{ -webkit-box-flex:1;}
+section .list li a{ text-align:center; color:#333; padding:0.375rem 0;}
+section .list li a em{ background:url(images/list_icon.png) no-repeat; background-size:2.2rem; width:100%; height:2.4rem; display:block;}
+section .list li a em.lIcon0{ background-position: center 0;}
+section .list li a em.lIcon1{ background-position: center -3.2rem;}
+section .list li a em.lIcon2{ background-position: center -6.4rem;}
+section .list li a em.lIcon3{ background-position: center -9.6rem;}
+section .list li a em.lIcon4{ background-position: center -12.8rem;}
+
+section .list li a span{ font-size:.4rem;}
+
+/*==精品展示==*/
+
+section .show{ background:#fff;}
+section .show h2{ border-bottom:2px solid #ebebeb; font-size:.9rem; font-weight:normal; padding:.45rem 0.675rem;}
+section .show ul li{ -webkit-box-flex:1;}
+section .show ul li a{ text-align:center; color:#333; padding:0.225rem 0 .45rem;}
+section .show ul li a em{ width:100%; height:4.25rem; line-height:6.5rem; display:block;}
+section .show ul li a em img{ border:none; width:3.825rem; display:inline-block;}
+section .show ul li a span{ font-size:.6rem;}
+/*w:158   3.95
+h:102	2.55*/
+
+/*==公司简介==*/
+section .show div{ padding:.5rem 1rem; font-family:'黑体';}
+section .show div{ overflow:hidden; font-size:.6rem;}
+section .show div span{ -display:inline-block; text-indent:2em; margin-left:}
+section .show div img{ width:4.55rem; float:left; margin-right:0.375rem;}
+</style>
+<script type="text/javascript" src="move.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',function(){
+	var oUl=document.querySelector('#box ul');
+	var aLi=oUl.children;
+	
+	var iNow=1;
+	
+	var bReady=true;
+	
+	var x=-document.documentElement.clientWidth;
+	oUl.addEventListener('touchstart',function(ev){
+		if(bReady==false)return;
+		bReady=false;
+		
+		var downX=ev.targetTouches[0].pageX;
+		var disX=downX-x;
+		
+		oUl.style.WebkitTransition='none';
+		
+		function fnMove(ev){
+			x=ev.targetTouches[0].pageX-disX;
+			oUl.style.WebkitTransform='translateX('+x+'px)';	
+		}
+		function fnEnd(ev){
+			oUl.removeEventListener('touchmove',fnMove,false);
+			oUl.removeEventListener('touchend',fnEnd,false);
+			
+			var upX=ev.changedTouches[0].pageX;
+			
+			if(Math.abs(downX-upX)>50){ //切换
+				if(downX>upX){ //++
+					iNow++;
+				}else{ //--
+					iNow--;
+				}
+				
+			}
+			x=-iNow*aLi[0].offsetWidth;
+					
+			oUl.style.WebkitTransition='.4s all ease';
+			oUl.style.WebkitTransform='translateX('+x+'px)';
+			
+			function tEnd(){
+				//alert(1);
+				bReady=true;
+				oUl.removeEventListener('transitionend',tEnd,false);
+				if(iNow==aLi.length-1){
+					iNow=1;
+					x=-iNow*aLi[0].offsetWidth;
+					oUl.style.WebkitTransition='none';
+					oUl.style.WebkitTransform='translateX('+x+'px)';	
+				}
+				if(iNow==0){
+					iNow=4;
+					x=-iNow*aLi[0].offsetWidth;
+					oUl.style.WebkitTransition='none';
+					oUl.style.WebkitTransform='translateX('+x+'px)';		
+				}
+			}
+			
+			oUl.addEventListener('webkitTransitionEnd',tEnd,false);
+		}
+		
+		oUl.addEventListener('touchmove',fnMove,false);
+		oUl.addEventListener('touchend',fnEnd,false);
+		
+		ev.preventDefault();
+	},false);
+},false);
+</script>
+</head>
+
+<body>
+<div id="wrap">
+	<header id="box">
+    	<ul class="margin_b">
+        	<li><a href="javascript:;"><img src="images/index_banner2.png"></a></li>
+            
+        	<li><a href="javascript:;"><img src="images/index_banner1.png"></a></li>
+        	<li><a href="javascript:;"><img src="images/index_banner2.png"></a></li>
+        	<li><a href="javascript:;"><img src="images/index_banner1.png"></a></li>
+        	<li><a href="javascript:;"><img src="images/index_banner2.png"></a></li>
+            
+        	<li><a href="javascript:;"><img src="images/index_banner1.png"></a></li>
+        </ul>
+    </header>
+    <section>
+    	<ul class="list border margin_b dis">
+        	<li>
+            	<a href="javascript:;">
+                	<em class="lIcon0"></em>
+                    <span>关于我们</span>
+                </a>
+            </li>
+        	<li>
+            	<a href="javascript:;">
+                	<em class="lIcon1"></em>
+                    <span>产品展示</span>
+                </a>
+            </li>
+        	<li>
+            	<a href="javascript:;">
+                	<em class="lIcon2"></em>
+                    <span>企业风采</span>
+                </a>
+            </li>
+        	<li>
+            	<a href="javascript:;">
+                	<em class="lIcon3"></em>
+                    <span>企业荣誉</span>
+                </a>
+            </li>
+        	<li>
+            	<a href="javascript:;">
+                	<em class="lIcon4"></em>
+                    <span>联系我们</span>
+                </a>
+            </li>
+        </ul>
+        <div class="show border margin_b">
+        	<h2>精品展示</h2>
+            <ul class="dis">
+            	<li class="border_r">
+                	<a href="javascript:;">
+                    	<em>
+                        	<img src="images/log.png" alt="">
+                        </em>
+                        <span>架子床</span>
+                    </a>
+                </li>
+            	<li class="border_r">
+                	<a href="javascript:;">
+                    	<em>
+                        	<img src="images/log2.png" alt="">
+                        </em>
+                        <span>衣帽架</span>
+                    </a>
+                </li>
+            	<li>
+                	<a href="javascript:;">
+                    	<em>
+                        	<img src="images/log3.png" alt="">
+                        </em>
+                        <span>腰形茶桌</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="show border ">
+        	<h2>公司简介</h2>
+            <div>
+            	<img src="images/brief.png">
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是一家专门生产、经营、销售红木家具的生产型企业，位于东阳市南马镇机械工业园，占地面积10余亩，现有职工100余人。</span>
+            </div>
+        </div>
+    </section>
+    <footer>
+    	<ul class="fsize18 dis">
+        	<li>
+                <a href="javascript:;">
+                    <em class="f_icon0"></em>
+                	<span>首页</span>
+                </a>
+            </li>
+        	<li>
+                <a href="javascript:;">
+                    <em class="f_icon1"></em>
+                	<span>联系电话</span>
+                </a>
+            </li>
+        	<li>
+                <a href="javascript:;">
+                    <em class="f_icon2"></em>
+                	<span>地址导航</span>
+                </a>
+            </li>
+        	<li>
+                <a href="javascript:;">
+                    <em class="f_icon3"></em>
+                	<span>返回</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+</div>
+</body>
+<script>
+;(function(win,doc){
+	var resize='orientationchange' in window?'orientationchange':'resize';
+	
+	function change(){
+		var html=doc.documentElement;
+		html.style.fontSize=doc.documentElement.clientWidth/16+'px';	
+	}
+	
+	win.addEventListener(resize,change,false);
+	win.addEventListener('load',change,false);
+	doc.addEventListener('DOMContentLoaded',false);
+})(window,document);
+</script>
+
+</html>
