@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>This is my personal website</title>
 <link rel="stylesheet" href="stylesheets/style.css">
+<script type="text/javascript" src="javascripts/move.js"></script>
 <script type="text/javascript" src="javascripts/common.js"></script>
 </head>
 
@@ -11,7 +12,7 @@
 <!--导航-->
 <div id="header">
 	<div class="head iMin relative">
-    	<ul>
+    	<ul id="list">
     		<li><a href="javascript:;">首页</a><i></i></li>
             <li><a href="javascript:;">案例展示</a><i></i></li>
             <li><a href="javascript:;">关于我</a><i></i></li>
@@ -19,6 +20,8 @@
     	</ul>
     </div>
 </div>
+<div id="ts" style="height:95px; display:none;"></div>
+<div id="bd">
 <!--轮播图-->
 <div id="banner" class="relative tab">
 	<div class="ban_con" id="ban_con">
@@ -105,14 +108,14 @@
                 </a>
             </li>
         	<li>
-            	<a href="javascript:;">
-                    <span>标题</span>
+            	<a href="photo.html" target="_blank">
+                    <span>照片墙</span>
                     <img src="images/show_3.jpg" />
                 </a>
             </li>
         	<li>
-            	<a href="javascript:;">
-                    <span>标题</span>
+            	<a href="tick.htm">
+                    <span>时钟</span>
                     <img src="images/show_4.jpg" />
                 </a>
             </li>
@@ -137,5 +140,21 @@
     	<p class="call_c"></p>
     </div>
 </div>
+</div>
+<script type="text/javascript">
+var oC = document.getElementById('call');
+
+	var oUl = document.getElementById('list');
+	var aLi = oUl.children;
+	for(var i=0;i<aLi.length;i++){
+		(function(index){
+			aLi[i].onclick = function(){
+				document.body.scrollTop = 700*index+'px';
+			};
+		})(i);
+	}
+oC.onclick = function(){
+};
+</script>
 </body>
 </html>
