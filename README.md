@@ -1,2 +1,2 @@
-# website.github.com
+# wulirui.github.com
 This is my personal website
