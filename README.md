@@ -1,2 +1,2 @@
-# lgr8888.github.com
+# website.github.com
 This is my personal website
